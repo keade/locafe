@@ -1,0 +1,28 @@
+<div class="twelve columns">
+<h1>Search your City</h1>
+<%= form_tag locations_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil, :class => "button" %>
+  </p>
+<% end %>
+<hr />
+<% @locations.each do |location| %>
+<div class="row">
+<p><h2><%= link_to location.name, location %> <%= location.city %> <%= location.state if location.state.present? %>
+    <%= image_tag("glutenfree.png", :alt => "Gluten Free Options", :title => "Gluten Free Options") if location.gluten.present? %>
+    <%= image_tag("petfriendly.png", :alt => "Pet Friendly Area", :title => "Pet Friendly Areas") if location.dog.present? %>
+    <%= image_tag("wifi.png", :alt => "Wifi Available", :title => "Wifi Available") if location.wifi.present? %>
+    <%= image_tag("delivery.png", :alt => "Delivery Option", :title => "Delivery Option") if location.delivery.present? %>
+</h2>
+    
+<%= link_to 'Destroy', location, confirm: 'Are you sure?', method: :delete if admin_signed_in? %>
+</p>
+</div>
+<% end %>
+<hr />
+<%= will_paginate @location %>
+
+<%= link_to 'New Location', new_location_path, :class => "button" if user_signed_in? %>
+<%= link_to 'New Location', new_location_path, :class => "button" if admin_signed_in? %>
+</div>

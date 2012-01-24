@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="six columns">
+    <p>
+      <h1><%= @location.name %></h1>
+    </p>
+    <p>
+      <%= image_tag("glutenfree.png", :alt => "Gluten Free Options", :title => "Gluten Free Options") if @location.gluten.present? %>
+      <%= image_tag("petfriendly.png", :alt => "Pet Friendly Area", :title => "Pet Friendly Areas") if @location.dog.present? %>
+      <%= image_tag("wifi.png", :alt => "Wifi Available", :title => "Wifi Available") if @location.wifi.present? %>
+      <%= image_tag("delivery.png", :alt => "Delivery Option", :title => "Delivery Option") if @location.delivery.present? %>
+    </p>
+    <p>
+      <strong><%= @location.address %>,
+      <%= @location.city %>,
+      <%= @location.state %>,
+      <%= @location.zip %></strong> - 
+      <%= @location.country %>
+    </p>
+    <p>
+      <h5><%= @location.phone %></h5>
+    </p>
+
+    <p>
+       <%= @location.url %>
+    </p>
+  </div>
+  <div class="six columns">
+    <div class="row">
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=460x230&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+    </div>
+    <div class="row">
+      <h3>Nearby locations</h3>
+        <ul>
+        <% for location in @location.nearbys(10) %>
+          <li><%= link_to location.name, location %> (<%= location.distance.round(2) %> miles)</li>
+        <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_location_path(@location), :class => "button" if user_signed_in? %>
+<%= link_to 'Edit', edit_location_path(@location), :class => "button" if admin_signed_in? %>
+<%= link_to 'Back', locations_path, :class => "button" %>

@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="four columns">
+	<h1><%= link_to image_tag("logo.png"), root_path %></h1>
+	</div>
+	<div class="eight columns">
+		<p class="nav">
+		<% if admin_signed_in? %>
+			YOU ARE IN GOD MODE <%= current_admin.email %>
+			<%= link_to "Return to Mortality", destroy_admin_session_path, :method => :delete %> |||
+		<% end %>
+
+		<% if user_signed_in? %>
+		    Signed in as <%= current_user.email %>. Not you?
+		    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		  <% else %>
+		    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+		  <% end %>
+		  </p>
+		  <blockquote>"Friends don't let friends drink shitty coffee"</blockquote>
+	</div>
+</div>
