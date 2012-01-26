@@ -1,9 +1,9 @@
 <%= simple_form_for @location do |f| %>
 
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :city %>
-<%= f.input :state %>
+<%= f.input :name, :required => true %>
+<%= f.input :address, :required => true %>
+<%= f.input :city, :required => true %>
+<%= f.input :state, :required => true %>
 <%= f.input :zip %>
 <%= f.input :country %>
 <%= f.input :phone %>
@@ -12,5 +12,5 @@
 <%= f.input :dog, :label => "Pet Friendly Areas?" %>
 <%= f.input :wifi, :label => "WiFi Internet Access?" %>
 <%= f.input :delivery, :label => "Delivery Option?" %>
-<%= f.button :submit  %>
+<%= f.button :submit %>
 <% end %>

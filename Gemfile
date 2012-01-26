@@ -6,15 +6,12 @@ group :development do
 	gem 'sqlite3'
 end
 
-group :production do
-	gem 'pg'
-end
-
 gem 'devise'
 gem 'will_paginate'
 gem 'simple_form'
 gem 'geocoder'
 gem 'friendly_id'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 
 group :assets do
