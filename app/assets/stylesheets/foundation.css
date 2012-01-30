@@ -44,7 +44,7 @@
 	}
 	html {
 		font-size: 62.5%;
-		background: url('bg2.png') repeat;
+
 	}
 	/* HTML5 display-role reset for older browsers */
 	article, aside, details, figcaption, figure, 
@@ -200,9 +200,14 @@
 	
 	-------------------------------------------------- */
 
-	.container { padding: 0 20px; }
-	
+	.header { position: fixed; top: 0; width: 100%; height: 50px; background: #fbfbfb; background-image: url("image2.jpg"); background-repeat: repeat-x, repeat; border-bottom: 1px #ececec solid;}
+	.content { margin-top:50px; }
+	.footer { position: fixed; bottom: 0; width: 100%; height: 50px; background: #fff; }
+
+	.container {  }
+
 	.row { width: 100%; max-width: 980px; min-width: 727px; margin: 0 auto; }
+
 	/* To fix the grid into a certain size, set max-width to width */
 	.row .row { min-width: 0; }
 	
