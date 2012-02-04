@@ -200,7 +200,7 @@
 	
 	-------------------------------------------------- */
 
-	.header { position: fixed; top: 0; width: 100%; height: 50px; background: #fbfbfb; background-image: url("image2.jpg"); background-repeat: repeat-x, repeat; border-bottom: 1px #ececec solid;}
+	.header { position: fixed; top: 0; width: 100%; height: 50px; background: #fbfbfb; background-image: url("image2.jpg"); background-repeat: repeat-x, repeat; border-bottom: 1px #ececec solid; z-index: 300;}
 	.content { margin-top:50px; }
 	.footer { position: fixed; bottom: 0; width: 100%; height: 50px; background: #fff; }
 
