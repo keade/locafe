@@ -1,14 +1,13 @@
 <div class="row">
 	<div class="eight columns">
 		<h1><%= link_to image_tag("logo3.png" ), root_path %></h1>
-		</div>
+	</div>
 	<div class="four columns">
 			<p class="nav">
 			<% if admin_signed_in? %>
 				YOU ARE IN GOD MODE <%= current_admin.email %>
 				<%= link_to "Return to Mortality", destroy_admin_session_path, :method => :delete %> |||
 			<% end %>
-
 			<% if user_signed_in? %>
 			    signed in as <strong><%= current_user.username %></strong> | <%= link_to "Profile", current_user %> | <%= link_to "Settings", edit_user_registration_path %> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 			  <% else %>
