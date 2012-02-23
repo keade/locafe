@@ -1,5 +1,20 @@
+<div class="row">
+	<div class="four columns">
+		<h5 style="padding-top:15px;">Welcome to Coffee.local.jam</h5>
+		<blockquote>Bringing rewards for jamming locally. Studying? Business? Chilling? Resting? You name it, jam it and be rewarded.</blockquote>
+		<p>Get in on the rewards, it's free and is all about coffee.
+			<br />
+			<div><%= link_to "sign up", new_user_registration_path, :class => "button" %></div>
+		</p>
+	</div>
+	<div class="eight columns">
+		<%= image_tag('http://coffeelocal.s3.amazonaws.com/coffeelocaljam-diagram.png') %>
+	</div>
+</div>
+<hr />
+<div class="row">
 <div class="twelve columns">
-<h1>Search your City</h1>
+<h1>search coffee.jams near you</h1>
 <%= form_tag locations_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -25,4 +40,5 @@
 
 <%= link_to 'New Location', new_location_path, :class => "button" if user_signed_in? %>
 <%= link_to 'New Location', new_location_path, :class => "button" if admin_signed_in? %>
+</div>
 </div>
