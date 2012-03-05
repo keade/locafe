@@ -41,6 +41,6 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_location_path(@location), :class => "button" if user_signed_in? %>
-<%= link_to 'Edit', edit_location_path(@location), :class => "button" if admin_signed_in? %>
-<%= link_to 'Back', locations_path, :class => "button" %>
+<%= link_to 'Edit', edit_location_path(@location), :class => "button nice white" if user_signed_in? %>
+<%= link_to 'Edit', edit_location_path(@location), :class => "button nice white" if admin_signed_in? %>
+<%= link_to 'Back', locations_path, :class => "button nice white" %>
