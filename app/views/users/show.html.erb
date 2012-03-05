@@ -1,9 +1,14 @@
 <% title "#{@user.username}" %>
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="six columns">
+  <div class="four columns">
     <p>
       <h1><%= @user.username %></h1>
     </p>
+	<p style="box-shadow:5px 5px 15px #e5e5e5; padding:5px; background:#e5e5e5;">
+		<%= image_tag('coffeecup.png') %>&nbsp;<%= pluralize(@total_location, "Points") %>
+		<br />
+		<%= image_tag('jams.png') %>&nbsp;<%= pluralize(@total_location, "Jams") %>
+	</p>
   </div>
 </div>
