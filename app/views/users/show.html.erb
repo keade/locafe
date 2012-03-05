@@ -2,13 +2,22 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="four columns">
-    <p>
-      <h1><%= @user.username %></h1>
-    </p>
+    <h1><%= @user.username %></h1>
 	<p style="box-shadow:5px 5px 15px #e5e5e5; padding:5px; background:#e5e5e5;">
-		<%= image_tag('coffeecup.png') %>&nbsp;<%= pluralize(@total_location, "Points") %>
+		<%= image_tag('coffeecup.png') %>&nbsp;<%= @user.locations.count %>&nbsp;Points
 		<br />
 		<%= image_tag('jams.png') %>&nbsp;<%= pluralize(@total_location, "Jams") %>
 	</p>
   </div>
+	<div class="eight columns">
+		<p><%= link_to "Add local.jam", new_location_path, :class => "button nice white" %></p>
+		<p><h5>added coffee.local.jams</h5></p>
+		<hr />
+		<p>
+		<% unless @user.locations.empty? %>
+		<%= render 'locations/location' %>
+		<%= will_paginate @location %>
+		<% end %>
+		</p>
+	</div>
 </div>

@@ -13,8 +13,17 @@ class CreateLocations < ActiveRecord::Migration
       t.boolean :dog
       t.boolean :wifi
       t.boolean :delivery
+	    t.float	:latitude
+	    t.float	:longitude
+	    t.string	:slug
+	    t.integer	:user_id
 
       t.timestamps
     end
+	add_index :locations, [:user_id, :created_at]
   end
+	
+	def self.down
+		drop.table :locations
+	end	
 end

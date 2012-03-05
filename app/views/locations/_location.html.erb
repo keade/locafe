@@ -1,0 +1,7 @@
+<% @location.each do |location| %>
+<p>
+<h6><%= link_to location.name, location %>,&nbsp;<%= location.city %></h6><br />
+Posted <%= time_ago_in_words(location.created_at) %> ago.
+<hr />
+</p>
+<% end %>

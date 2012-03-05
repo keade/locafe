@@ -45,17 +45,14 @@ class LocationsController < ApplicationController
 
   # POST /locations
   # POST /locations.json
-  def create
-    @location = Location.new(params[:location])
 
-    respond_to do |format|
-      if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render json: @location, status: :created, location: @location }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
+  def create
+    @location  = current_user.locations.build(params[:location])
+    if @location.save
+      flash[:success] = "Local.ja created!"
+      redirect_to root_path
+    else
+      render 'users/index'
     end
   end
 

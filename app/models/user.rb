@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	extend FriendlyId
 		friendly_id :username, :use => :slugged
+
+	has_many :locations, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
